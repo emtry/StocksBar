@@ -28,4 +28,4 @@ From [here](https://github.com/emtry/StocksBar/releases/)
 
 ## License
 
-The project is released under the terms of the GPLv3.
+The project is released under the terms of the  [GPLv3](https://www.gnu.org/licenses/gpl-3.0.txt) .
