@@ -1,0 +1,29 @@
+{
+  "name": "StocksBar",
+  "version": "1.0.0",
+  "description": "A minimal Electron application to watch stocks on bar",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "pack": "electron-builder --dir",
+    "dist": "electron-builder --mac"
+  },
+  "repository": {
+    "type": "git",
+    "url": "null"
+  },
+  "keywords": [
+    "Stocks",
+    "Bar"
+  ],
+  "author": "emtry",
+  "license": "CC0-1.0",
+  "devDependencies": {
+    "electron": "^6.0.0",
+    "electron-builder": "^21.2.0"
+  },
+  "dependencies": {
+    "request": "^2.88.0",
+    "wait-until": "0.0.2"
+  }
+}

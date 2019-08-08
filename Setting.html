@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>Setting</title>
+  <style type="text/css">
+    body {
+      background: #e7e7e7;
+    }
+
+    .main {
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+  </style>
+</head>
+
+<body>
+  <div class="main">stock symbol: <input type="text" style="width:70px;" id="symbol" /><input type="button" value="确定" onclick="c();" /></div>
+  <script type="text/javascript">
+    var remote = require('electron').remote;
+    var symbol = remote.getGlobal('sharedObject').symbol;
+    document.getElementById("symbol").value = symbol;
+
+    function c() {
+      var remote = require('electron').remote;
+      var temp = document.getElementById("symbol").value;
+      remote.getGlobal('sharedObject').symbol = temp;
+      // console.log(remote.getGlobal('sharedObject').symbol);
+    }
+  </script>
+  <script src="./renderer.js"></script>
+</body>
+
+</html>
