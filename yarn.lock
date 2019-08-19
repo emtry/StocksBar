@@ -1659,6 +1659,11 @@ stat-mode@^0.3.0:
   resolved "https://registry.npm.taobao.org/stat-mode/download/stat-mode-0.3.0.tgz#69283b081f851582b328d2a4ace5f591ce52f54b"
   integrity sha1-aSg7CB+FFYKzKNKkrOX1kc5S9Us=
 
+storejs@^1.0.25:
+  version "1.0.25"
+  resolved "https://registry.npm.taobao.org/storejs/download/storejs-1.0.25.tgz#fc70d25b4df7866976a62b46b6dc6727761306ce"
+  integrity sha1-/HDSW033hml2pitGttxnJ3YTBs4=
+
 string-width@^1.0.1:
   version "1.0.2"
   resolved "https://registry.npm.taobao.org/string-width/download/string-width-1.0.2.tgz#118bdf5b8cdc51a2a7e70d211e07e2b0b9b107d3"

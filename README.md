@@ -22,6 +22,7 @@ From [here](https://github.com/emtry/StocksBar/releases/)
 ## Features
 
 - Could save personal configuration
+- Add windos support
 
 ## Thanks
 - [Electron](https://github.com/electron/electron)
