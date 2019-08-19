@@ -25,7 +25,7 @@ app.on('ready', () => {
   if (process.platform === 'darwin') {
     tray = new Tray(nativeImage.createEmpty())
   } else if (process.platform === 'win32') {
-    tray = new Tray('images/icon32.ico')
+    tray = new Tray(`${__dirname}/images/icon32.ico`)
   }
 
   Menu.setApplicationMenu(null)
@@ -40,7 +40,7 @@ app.on('ready', () => {
       click: function() {
         dialog.showMessageBox({
           type: 'info',
-          icon: 'images/StocksBar.png',
+          icon: `${__dirname}/images/StocksBar.png`,
           title: 'About',
           message: 'StocksBar',
           detail: 'Version 1.0.1',
@@ -92,7 +92,7 @@ app.on('ready', () => {
     fullscreen: false,
     fullscreenable: false,
     show: false,
-    icon:'images/icon32.ico',
+    icon: `${__dirname}/images/icon32.ico`,
     title: 'Setting',
     webPreferences: {
       nodeIntegration: true

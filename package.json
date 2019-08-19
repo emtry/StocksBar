@@ -34,7 +34,7 @@
     },
     "win": {
       "icon": "images/icon512.ico",
-      "target": ["portable"]
+      "target": ["nsis","zip"]
     }
   }
 }
