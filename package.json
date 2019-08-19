@@ -24,6 +24,7 @@
   },
   "dependencies": {
     "request": "^2.88.0",
+    "storejs": "^1.0.25",
     "wait-until": "0.0.2"
   }
 }

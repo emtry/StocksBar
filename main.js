@@ -1,13 +1,18 @@
+const electron = require('electron');
 const {
   app,
   Menu,
   Tray,
   nativeImage,
   dialog,
-  BrowserWindow
+  BrowserWindow,
 } = require('electron')
-app.dock.hide()
 
+if (process.platform === 'darwin') {
+  app.dock.hide()
+}
+
+const path = require('path');
 const waitUntil = require('wait-until');
 const request = require('request')
 
@@ -17,7 +22,13 @@ global.sharedObject = {
 
 let tray = null
 app.on('ready', () => {
-  tray = new Tray(nativeImage.createEmpty())
+  if (process.platform === 'darwin') {
+    tray = new Tray(nativeImage.createEmpty())
+  } else if (process.platform === 'win32') {
+    tray = new Tray('images/icon32.ico')
+  }
+
+  Menu.setApplicationMenu(null)
   const contextMenu = Menu.buildFromTemplate([{
       label: 'Setting',
       click: function() {
@@ -29,10 +40,10 @@ app.on('ready', () => {
       click: function() {
         dialog.showMessageBox({
           type: 'info',
-          icon: nativeImage.createEmpty(),
+          icon: 'images/StocksBar.png',
           title: 'About',
-          message: 'Stocks Bar',
-          detail: 'Version 1.0.0',
+          message: 'StocksBar',
+          detail: 'Version 1.0.1',
           buttons: ['确定']
         })
       }
@@ -46,7 +57,7 @@ app.on('ready', () => {
   ])
 
   tray.setTitle("%")
-  tray.setToolTip('Stocks Bar')
+  // tray.setToolTip('StocksBar')
   tray.setContextMenu(contextMenu)
 
 
@@ -60,7 +71,11 @@ app.on('ready', () => {
         // console.log(body)
         var str = String(body)
         var arr = str.split(",")
-        tray.setTitle(arr[3] + "%")
+        if (arr[3] == null) {
+          tray.setTitle("%")
+        } else {
+          tray.setTitle(arr[3] + "%")
+        }
         return (false);
       })
     })
@@ -71,12 +86,13 @@ app.on('ready', () => {
 
   let win = new BrowserWindow({
     width: 500,
-    height: 200,
+    height: 220,
     resizable: false,
     maximizable: false,
     fullscreen: false,
     fullscreenable: false,
     show: false,
+    icon:'images/icon32.ico',
     title: 'Setting',
     webPreferences: {
       nodeIntegration: true
