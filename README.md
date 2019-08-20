@@ -24,7 +24,7 @@ From [here](https://github.com/emtry/StocksBar/releases/)
 
 - ✅Could save personal configuration
 - ✅Add windos support
-- ✅Add auto update
+- Add auto update
 
 ## Thanks
 - [Electron](https://github.com/electron/electron)
