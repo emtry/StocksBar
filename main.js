@@ -8,6 +8,12 @@ const {
   BrowserWindow,
 } = require('electron')
 
+const gotTheLock = app.requestSingleInstanceLock()
+
+if (!gotTheLock) {
+  app.quit()
+}
+
 if (process.platform === 'darwin') {
   app.dock.hide()
 }
@@ -15,9 +21,13 @@ if (process.platform === 'darwin') {
 const path = require('path');
 const waitUntil = require('wait-until');
 const request = require('request')
+const iconv = require("iconv-lite");
+const Store = require('electron-store');
+const store = new Store();
 
 global.sharedObject = {
-  symbol: 'sh000300'
+  name: '',
+  per: ''
 };
 
 let tray = null
@@ -43,7 +53,7 @@ app.on('ready', () => {
           icon: `${__dirname}/images/StocksBar.png`,
           title: 'About',
           message: 'StocksBar',
-          detail: 'Version 1.0.1',
+          detail: 'Version 1.1.2',
           buttons: ['确定']
         })
       }
@@ -60,21 +70,31 @@ app.on('ready', () => {
   // tray.setToolTip('StocksBar')
   tray.setContextMenu(contextMenu)
 
-
+  if (store.get('symbol') == null) {
+    store.set('symbol', "sh000300");
+  }
 
   waitUntil()
     .interval(2000)
     .times(Infinity)
     .condition(function() {
-      var url = 'http://hq.sinajs.cn/list=s_' + global.sharedObject.symbol
-      request(url, (err, res, body) => {
+      var url = 'http://hq.sinajs.cn/list=s_' + store.get('symbol')
+      request({
+        url: url,
+        encoding: null
+      }, (err, res, body) => {
         // console.log(body)
-        var str = String(body)
-        var arr = str.split(",")
-        if (arr[3] == null) {
-          tray.setTitle("%")
-        } else {
+        if (body != null) {
+          var str = iconv.decode(body, 'GBK')
+          var ar = str.split("\"")
+          var arr = ar[1].split(",")
           tray.setTitle(arr[3] + "%")
+          global.sharedObject.name = arr[0]
+          global.sharedObject.per = arr[3]
+        } else {
+          tray.setTitle("%")
+          global.sharedObject.per = ''
+          global.sharedObject.name = 'ERROR!'
         }
         return (false);
       })
@@ -83,10 +103,32 @@ app.on('ready', () => {
       // do stuff
     });
 
+  if (process.platform === 'win32') {
+    let win2 = new BrowserWindow({
+      width: 72,
+      height: 29,
+      x: 1300,
+      y: 20,
+      resizable: false,
+      maximizable: false,
+      fullscreen: false,
+      fullscreenable: false,
+      frame: false,
+      transparent: true,
+      alwaysOnTop: true,
+      webPreferences: {
+        nodeIntegration: true
+      }
+    })
+    win2.loadURL(`file://${__dirname}/win2.html`);
+    win2.once('ready-to-show', () => {
+      win2.show()
+    })
+  }
 
   let win = new BrowserWindow({
     width: 500,
-    height: 220,
+    height: 200,
     resizable: false,
     maximizable: false,
     fullscreen: false,

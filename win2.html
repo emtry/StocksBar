@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>StocksBar</title>
+  <style type="text/css">
+    .main {
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      -webkit-user-select: none;
+      -webkit-app-region: drag;
+    }
+  </style>
+</head>
+
+<body style="-webkit-app-region: drag">
+  <div class="main"><span id="per">-%</span></div>
+  <script type="text/javascript">
+    var remote = require('electron').remote;
+
+    var c = 0;
+    var t;
+    function timedCount() {
+      var per = remote.getGlobal('sharedObject').per;
+      if (per>0){
+        document.getElementById("per").style.color='red';
+      }else if (per<0){
+        document.getElementById("per").style.color='green';
+      }else{
+        document.getElementById("per").style.color='';
+      }
+      document.getElementById("per").innerHTML = per + "%";
+      c = c + 1;
+      c = setTimeout(function() {
+        timedCount()
+      }, 2000);
+    }
+    timedCount()
+  </script>
+  <script src="./renderer.js"></script>
+</body>
+
+</html>

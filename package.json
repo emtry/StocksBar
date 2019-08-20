@@ -1,6 +1,6 @@
 {
   "name": "StocksBar",
-  "version": "1.0.1",
+  "version": "1.1.2",
   "description": "A minimal Electron application to watch stocks on bar",
   "main": "main.js",
   "scripts": {
@@ -23,6 +23,8 @@
     "electron-builder": "^21.2.0"
   },
   "dependencies": {
+    "electron-store": "^4.0.0",
+    "iconv-lite": "^0.5.0",
     "request": "^2.88.0",
     "storejs": "^1.0.25",
     "wait-until": "0.0.2"
@@ -30,11 +32,16 @@
   "build": {
     "mac": {
       "icon": "images/StocksBar.png",
-      "target": ["dmg","zip"]
+      "target": [
+        "dmg",
+        "zip"
+      ]
     },
     "win": {
       "icon": "images/icon512.ico",
-      "target": ["nsis","zip"]
+      "target": [
+        "zip"
+      ]
     }
   }
 }
