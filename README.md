@@ -8,7 +8,8 @@ A minimal Electron application to watch stocks on bar
 
 ### Running
 
-- macOS 10.14.6
+- macOS 10.10+
+- Windows 7+
 
 ### Building
 
@@ -21,8 +22,8 @@ From [here](https://github.com/emtry/StocksBar/releases/)
 
 ## Features
 
-- Could save personal configuration
-- Add windos support
+- ✅Could save personal configuration
+- ✅Add windos support
 
 ## Thanks
 - [Electron](https://github.com/electron/electron)
