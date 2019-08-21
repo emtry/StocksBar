@@ -2,6 +2,7 @@
 A minimal Electron application to watch stocks on bar
 
 ## preview
+![image](https://github.com/emtry/StocksBar/raw/master/images/preview_win.png)
 ![image](https://github.com/emtry/StocksBar/raw/master/images/preview.gif)
 
 ## Requirements
