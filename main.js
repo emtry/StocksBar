@@ -9,7 +9,6 @@ const {
 } = require('electron')
 
 const gotTheLock = app.requestSingleInstanceLock()
-
 if (!gotTheLock) {
   app.quit()
 }
@@ -27,6 +26,7 @@ const store = new Store();
 
 global.sharedObject = {
   name: '',
+  price: '',
   per: ''
 };
 
@@ -53,7 +53,7 @@ app.on('ready', () => {
           icon: `${__dirname}/images/StocksBar.png`,
           title: 'About',
           message: 'StocksBar',
-          detail: 'Version 1.1.2',
+          detail: 'Version 1.1.3',
           buttons: ['确定']
         })
       }
@@ -90,6 +90,7 @@ app.on('ready', () => {
           var arr = ar[1].split(",")
           tray.setTitle(arr[3] + "%")
           global.sharedObject.name = arr[0]
+          global.sharedObject.price = arr[1]
           global.sharedObject.per = arr[3]
         } else {
           tray.setTitle("%")
@@ -113,6 +114,7 @@ app.on('ready', () => {
       maximizable: false,
       fullscreen: false,
       fullscreenable: false,
+      setSkipTaskbar: false,
       frame: false,
       transparent: true,
       alwaysOnTop: true,
