@@ -1,36 +1,37 @@
 # StocksBar 
 A minimal Electron application to watch stocks on bar
 
-[中文版(Chinese)](README_zh.md)
+股票代码和基金代码取自[新浪财经](https://finance.sina.com.cn)
 
-## preview
+
+## 预览
 ![image](https://github.com/emtry/StocksBar/raw/master/images/preview.gif)
 ![image](https://github.com/emtry/StocksBar/raw/master/images/preview_win.png)
 
-## Requirements
+## 环境
 
-### Running
+### 运行环境
 
 - macOS 10.10+
 - Windows 7+
 
-### Building
+### 搭建搭建
 
 - node.js v12.14.1
 - electron v6.0.0
 
-## Download
+## 下载
 
 From [here](https://github.com/emtry/StocksBar/releases/)
 
-## Features
+## 功能
 
-- ✅Could save personal configuration
-- ✅Add Windows support
-- ✅Add fund support (E.g. of001410)
-- Add auto update
+- ✅支持保存设置
+- ✅支持 Windows
+- ✅支持基金 (例如 of001410)
+- 添加自动更新
 
-## Thanks
+## 感谢
 - [Electron](https://github.com/electron/electron)
 
 ## License
