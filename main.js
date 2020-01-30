@@ -53,7 +53,7 @@ app.on('ready', () => {
           icon: `${__dirname}/images/StocksBar.png`,
           title: 'About',
           message: 'StocksBar',
-          detail: 'Version 1.1.3',
+          detail: 'Version 1.2.4',
           buttons: ['确定']
         })
       }
@@ -78,27 +78,52 @@ app.on('ready', () => {
     .interval(2000)
     .times(Infinity)
     .condition(function() {
-      var url = 'http://hq.sinajs.cn/list=s_' + store.get('symbol')
-      request({
-        url: url,
-        encoding: null
-      }, (err, res, body) => {
-        // console.log(body)
-        if (body != null) {
-          var str = iconv.decode(body, 'GBK')
-          var ar = str.split("\"")
-          var arr = ar[1].split(",")
-          tray.setTitle(arr[3] + "%")
-          global.sharedObject.name = arr[0]
-          global.sharedObject.price = arr[1]
-          global.sharedObject.per = arr[3]
-        } else {
-          tray.setTitle("%")
-          global.sharedObject.per = ''
-          global.sharedObject.name = 'ERROR!'
-        }
-        return (false);
-      })
+      if (store.get('symbol').indexOf("of") != -1) {
+        var url = 'http://fundgz.1234567.com.cn/js/' + store.get('symbol').split("f")[1] + '.js?rt=1463558676006'
+        request({
+          url: url,
+          encoding: null
+        }, (err, res, body) => {
+          // console.log(body)
+          if (body != null) {
+            var str = iconv.decode(body, 'utf8')
+            var art = str.split("{")
+            var ar = art[1].split("}")
+            var arr = JSON.parse("{" + ar[0] + "}")
+            tray.setTitle(arr.gszzl + "%")
+            global.sharedObject.name = arr.name
+            global.sharedObject.price = arr.gsz
+            global.sharedObject.per = arr.gszzl
+          } else {
+            tray.setTitle("%")
+            global.sharedObject.per = ''
+            global.sharedObject.name = 'ERROR!'
+          }
+          return (false);
+        })
+      } else {
+        var url = 'http://hq.sinajs.cn/list=s_' + store.get('symbol')
+        request({
+          url: url,
+          encoding: null
+        }, (err, res, body) => {
+          // console.log(body)
+          if (body != null) {
+            var str = iconv.decode(body, 'GBK')
+            var ar = str.split("\"")
+            var arr = ar[1].split(",")
+            tray.setTitle(arr[3] + "%")
+            global.sharedObject.name = arr[0]
+            global.sharedObject.price = arr[1]
+            global.sharedObject.per = arr[3]
+          } else {
+            tray.setTitle("%")
+            global.sharedObject.per = ''
+            global.sharedObject.name = 'ERROR!'
+          }
+          return (false);
+        })
+      }
     })
     .done(function(result) {
       // do stuff
