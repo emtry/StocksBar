@@ -2,8 +2,8 @@
 A minimal Electron application to watch stocks on bar
 
 ## preview
-![image](https://github.com/emtry/StocksBar/raw/master/images/preview_win.png)
 ![image](https://github.com/emtry/StocksBar/raw/master/images/preview.gif)
+![image](https://github.com/emtry/StocksBar/raw/master/images/preview_win.png)
 
 ## Requirements
 
@@ -14,7 +14,7 @@ A minimal Electron application to watch stocks on bar
 
 ### Building
 
-- node.js v12.7.0
+- node.js v12.14.1
 - electron v6.0.0
 
 ## Download
@@ -25,6 +25,7 @@ From [here](https://github.com/emtry/StocksBar/releases/)
 
 - ✅Could save personal configuration
 - ✅Add windos support
+- ✅Add fund support (E.g. of001410)
 - Add auto update
 
 ## Thanks
