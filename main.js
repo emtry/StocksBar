@@ -132,7 +132,7 @@ app.on('ready', () => {
   if (process.platform === 'win32') {
     let win2 = new BrowserWindow({
       width: 72,
-      height: 29,
+      height: 33,
       x: 1300,
       y: 20,
       resizable: false,
@@ -154,7 +154,7 @@ app.on('ready', () => {
   }
 
   let win = new BrowserWindow({
-    width: 500,
+    width: 520,
     height: 200,
     resizable: false,
     maximizable: false,
