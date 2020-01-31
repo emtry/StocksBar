@@ -17,8 +17,21 @@ A minimal Electron application to watch stocks on bar
 
 ### 搭建搭建
 
-- node.js v12.14.1
+- Node.js v12.14.1
+- yarn v1.17.3
 - electron v6.0.0
+
+```
+git clone https://github.com/emtry/StocksBar.git
+cd StocksBar
+yarn install
+
+# 运行
+yarn start
+
+# 打包
+yarn dist
+```
 
 ## 下载
 
