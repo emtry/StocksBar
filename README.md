@@ -23,6 +23,7 @@ A minimal Electron application to watch stocks on bar
 ```
 git clone https://github.com/emtry/StocksBar.git
 cd StocksBar
+npm install -g yarn
 yarn install
 
 # run
