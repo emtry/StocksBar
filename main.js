@@ -53,7 +53,7 @@ app.on('ready', () => {
           icon: `${__dirname}/images/StocksBar.png`,
           title: 'About',
           message: 'StocksBar',
-          detail: 'Version 1.2.4',
+          detail: 'Version 1.2.5',
           buttons: ['确定']
         })
       }
@@ -105,7 +105,10 @@ app.on('ready', () => {
         var url = 'http://hq.sinajs.cn/list=s_' + store.get('symbol')
         request({
           url: url,
-          encoding: null
+          encoding: null,
+          headers: {
+            "Referer": "http://finance.sina.com.cn",
+        }
         }, (err, res, body) => {
           // console.log(body)
           if (body != null) {
@@ -144,7 +147,9 @@ app.on('ready', () => {
       transparent: true,
       alwaysOnTop: true,
       webPreferences: {
-        nodeIntegration: true
+        nodeIntegration: true,
+        enableRemoteModule: true,
+        contextIsolation: false
       }
     })
     win2.loadURL(`file://${__dirname}/win2.html`);
@@ -164,7 +169,9 @@ app.on('ready', () => {
     icon: `${__dirname}/images/icon32.ico`,
     title: 'Setting',
     webPreferences: {
-      nodeIntegration: true
+      nodeIntegration: true,
+      enableRemoteModule: true,
+      contextIsolation: false
     }
   })
   win.on('close', function(event) {
@@ -174,6 +181,8 @@ app.on('ready', () => {
   win.on('closed', function() {
     win = null;
   });
+  require("@electron/remote/main").initialize();
+  require("@electron/remote/main").enable(win.webContents);
   win.loadURL(`file://${__dirname}/Setting.html`);
-  // win.webContents.openDevTools()
+  //win.webContents.openDevTools();
 })

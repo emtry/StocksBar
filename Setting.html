@@ -22,7 +22,7 @@
 <body>
   <div class="main" style="width:500px;"></br></br><span class="main" id="name"></span></br><span class="main" id="price"></span></br>stock symbol: <input type="text" style="width:70px;" id="symbol" /> <input type="button" value="submit" onclick="c();" /></div>
   <script type="text/javascript">
-    var remote = require('electron').remote;
+    var remote = require('@electron/remote');
     const Store = require('electron-store');
     const store = new Store();
     document.getElementById("symbol").value = store.get('symbol');

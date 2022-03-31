@@ -11,19 +11,19 @@ A minimal Electron application to watch stocks on bar
 
 ### Running
 
-- macOS 10.10+
-- Windows 7+
+- macOS 10.11+
+- Windows 7+  (deprecated)
 
 ### Building
 
-- Node.js v12.14.1
-- yarn v1.17.3
-- electron v6.0.0
+- Node.js v16.14.2
+- yarn v1.22.18
+- electron v17.3.1
 
 ```
 git clone https://github.com/emtry/StocksBar.git
 cd StocksBar
-npm install -g yarn
+npm install -g yarn cross-env
 yarn install
 
 # run
