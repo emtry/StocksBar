@@ -53,7 +53,7 @@ app.on('ready', () => {
           icon: `${__dirname}/images/StocksBar.png`,
           title: 'About',
           message: 'StocksBar',
-          detail: 'Version 1.2.5',
+          detail: 'Version 1.2.6',
           buttons: ['确定']
         })
       }
@@ -90,7 +90,7 @@ app.on('ready', () => {
             var art = str.split("{")
             var ar = art[1].split("}")
             var arr = JSON.parse("{" + ar[0] + "}")
-            tray.setTitle(arr.gszzl + "%")
+            tray.setTitle(arr.gszzl + "% " + arr.gsz)
             global.sharedObject.name = arr.name
             global.sharedObject.price = arr.gsz
             global.sharedObject.per = arr.gszzl
