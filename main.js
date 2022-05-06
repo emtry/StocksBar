@@ -90,7 +90,7 @@ app.on('ready', () => {
             var art = str.split("{")
             var ar = art[1].split("}")
             var arr = JSON.parse("{" + ar[0] + "}")
-            tray.setTitle(arr.gszzl + "% " + arr.gsz)
+            tray.setTitle(arr.gszzl + "%")
             global.sharedObject.name = arr.name
             global.sharedObject.price = arr.gsz
             global.sharedObject.per = arr.gszzl
@@ -115,7 +115,7 @@ app.on('ready', () => {
             var str = iconv.decode(body, 'GBK')
             var ar = str.split("\"")
             var arr = ar[1].split(",")
-            tray.setTitle(arr[3] + "%")
+            tray.setTitle(arr[3] + "% "+ arr[1].match(/^\d+(?:\.\d{0,2})?/))
             global.sharedObject.name = arr[0]
             global.sharedObject.price = arr[1]
             global.sharedObject.per = arr[3]
