@@ -19,7 +19,7 @@
   "author": "emtry",
   "license": "CC0-1.0",
   "devDependencies": {
-    "electron": "^17.3.1",
+    "electron": "^18.3.7",
     "electron-builder": "^21.2.0"
   },
   "dependencies": {
