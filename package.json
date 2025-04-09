@@ -1,6 +1,6 @@
 {
   "name": "StocksBar",
-  "version": "1.2.6",
+  "version": "1.2.7",
   "description": "A minimal Electron application to watch stocks on bar",
   "main": "main.js",
   "scripts": {
@@ -16,10 +16,10 @@
     "Stocks",
     "Bar"
   ],
-  "author": "emtry",
+  "author": "ehgenong",
   "license": "CC0-1.0",
   "devDependencies": {
-    "electron": "^17.3.1",
+    "electron": "^18.3.7",
     "electron-builder": "^21.2.0"
   },
   "dependencies": {

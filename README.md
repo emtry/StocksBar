@@ -5,7 +5,6 @@ A minimal Electron application to watch stocks on bar
 
 ## preview
 ![image](https://github.com/emtry/StocksBar/raw/master/images/preview.gif)
-![image](https://github.com/emtry/StocksBar/raw/master/images/preview_win.png)
 
 ## Requirements
 
@@ -16,9 +15,9 @@ A minimal Electron application to watch stocks on bar
 
 ### Building
 
-- Node.js v16.14.2
-- yarn v1.22.18
-- electron v17.3.1
+- Node.js v16.14.2 or newer
+- yarn v1.22.18 or newer
+- electron v18.3.7
 
 ```
 git clone https://github.com/emtry/StocksBar.git
@@ -38,10 +37,10 @@ From [here](https://github.com/emtry/StocksBar/releases/)
 
 ## Features
 
-- ✅Could save personal configuration
-- ✅Add Windows support
+- ✅Add China A-shares support (E.g. sh000300)
 - ✅Add fund support (E.g. of001410)
-- Add auto update
+- ✅Add US stocks support (E.g. gb_tsla)
+- ✅Add HK stocks support (E.g. hk01810)
 
 ## Thanks
 - [Electron](https://github.com/electron/electron)
